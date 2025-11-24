@@ -1,47 +1,35 @@
-# 📘 Test Plan – Valorant Game Testing
+# 📘 Test Plan – VALORANT (Updated 2025)
 
-## 1. Introduction
-Valorant is a 5v5 tactical FPS game.  
-The goal of this test plan is to validate gameplay mechanics, UI components, game stability,  
-and feature functionality.
+## 1. Scope & Goals
+Validate gameplay features, UI/UX, performance (including UE5-related rendering changes), network resilience, and anti-cheat interactions across PC and console (PS5/Xbox Series S|X — console parity matters for cross-progression flows). :contentReference[oaicite:12]{index=12}
 
-## 2. Test Scope
-### In Scope
-- Game launch & client functionality  
-- Login, authentication, Riot ID validation  
-- Agent selection  
-- Weapons & ability usage  
-- In-game store  
-- Matchmaking & server connection  
-- Ping & network stability  
-- UI/UX  
-- Performance (FPS drops, texture loading)
+## 2. In-Scope Features
+- Client installation, launcher and updates
+- Account login / Riot ID / MFA flows
+- Agent selection & ability behavior
+- Weapon purchase and buy-phase mechanics
+- Matchmaking, ranked/competitive flows
+- Cross-progression & account sync between PC and consoles (skin/ownership checks). :contentReference[oaicite:13]{index=13}
+- Performance variations introduced by UE5 rendering features
+- Interaction with Riot Vanguard (boot-time behavior and compatibility checks). :contentReference[oaicite:14]{index=14}
 
-### Out of Scope
-- Server-side architecture  
-- Anti-cheat system internals (Vanguard)  
-- Payment gateways
+## 3. Out-of-Scope
+- Server source code / anti-cheat internals beyond user-observable behavior
+- Third-party backend services not surfaced in-game
 
-## 3. Test Environment
-| Component | Details |
-|----------|---------|
-| OS | Windows 10 – 64 bit |
-| GPU | NVIDIA GTX 1650 |
-| RAM | 8 GB |
-| Network | 40–80 ms ping average |
-| Game Version | Episode 9 / 2025 |
+## 4. Test Environment Matrix
+- **PC**: Win10/11, GPU tiers: low / mid / high (to test 30/60/144+ FPS). Minimum requirements per Riot support. :contentReference[oaicite:15]{index=15}
+- **Console**: PS5 and Xbox Series X|S (validate cross-progression and parity of unlocks). :contentReference[oaicite:16]{index=16}
+- **Network**: Stable 20–40 ms, simulated 100–300 ms, packet loss 0–5%.
 
-## 4. Test Types
-- Functional Testing  
-- UI/UX Testing  
-- Compatibility Testing  
-- Performance Testing  
-- Smoke & Regression Testing  
-- Network Testing  
-- AI-assisted Testing (test case generation + analysis)
+## 5. Test Types
+- Functional (gameplay, UI)
+- Performance (FPS, frame time, stutters — esp. after UE5 migration)
+- Network (latency spikes, reconnection)
+- Compatibility (Vanguard interactions, other kernel-level drivers)
+- Regression & Smoke
 
-## 5. Exit Criteria
-- All critical bugs resolved  
-- No game-breaking issues  
-- Stable FPS (above 80)  
-- No matchmaking failures in 10 tries
+## 6. Exit Criteria
+- All critical/major issues resolved or accepted
+- Repro rate < 1% for critical issues under test harness
+- Performance baseline met on recommended hardware
