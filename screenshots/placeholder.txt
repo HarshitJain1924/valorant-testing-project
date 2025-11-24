@@ -1,0 +1,5 @@
+Add real captures here:
+- ping_spike_YYYYMMDD.png
+- ue5_first_load_stutter_YYYYMMDD.mp4 (or screenshot frames)
+- vanguard_conflict_logs_YYYYMMDD.txt (if any)
+- store_sync_delay_YYYYMMDD.png
