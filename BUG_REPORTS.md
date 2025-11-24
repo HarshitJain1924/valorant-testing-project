@@ -1,51 +1,37 @@
-# 🐞 Bug Reports – Valorant
+# 🐞 Bug Reports – VALORANT (Updated)
 
 ---
 
-## Bug 01 – Agent Icons Loading Slowly
-**ID:** BUG_UI_001  
+## BUG_UI_UE5_001 – UE5 Asset Streaming Causes First-Load Stutter
 **Severity:** Medium  
-**Type:** UI Performance  
-**Steps to Reproduce:**
-1. Enter Agent Select Screen  
-2. Observe icons load after 6–7 seconds  
-**Expected Result:** Load within 3 seconds  
-**Actual Result:** Slow loading  
-**Status:** Open  
-**Screenshot:** /screenshots/icon_delay.png
+**Steps:** 1. Fresh client start after patch 2. Load into match 3. Observe frame drops in first 30s  
+**Expected:** Smooth entry without major stutters  
+**Actual:** 1–2 second micro-stutter on low-end GPU; likely asset streaming change from UE5 conversion. :contentReference[oaicite:22]{index=22}  
+**Status:** Open
 
 ---
 
-## Bug 02 – Weapon Purchase Delay
-**ID:** BUG_GAMEPLAY_004  
+## BUG_GAMEPLAY_PURCHASE_002 – Delayed Weapon Equip During Buy Phase
 **Severity:** High  
-**Type:** Gameplay  
-**Steps:**  
-1. Enter Buy Phase  
-2. Purchase Vandal  
-**Expected:** Weapon added instantly  
-**Actual:** 0.5–1 sec delay  
-**Possible Cause:** Micro-stutter / server lag  
-**Status:** Open  
+**Steps:** 1. Buy Phase → purchase rifle 2. Observe equip latency  
+**Expected:** Immediate equip  
+**Actual:** 300–800 ms delay under simulated high-latency network  
+**Impact:** Competitive disadvantage  
+**Status:** Open
 
 ---
 
-## Bug 03 – Ping Spikes During Match
-**ID:** BUG_NETWORK_010  
+## BUG_NETWORK_VANGUARD_003 – Vanguard causing conflict with other kernel anti-cheats
 **Severity:** Critical  
-**Type:** Network / Lag  
-**Steps:**  
-1. Start competitive match  
-2. Observe ping graph  
-**Expected:** Ping stable <120ms  
-**Actual:** Spikes to 250ms  
-**Impact:** Affects shooting & movement  
-**Status:** Under Investigation  
+**Steps:** 1. Install Valorant (Vanguard) 2. Install another beta game with kernel anti-cheat 3. Attempt to launch both  
+**Expected:** Both launch or clear guidance provided  
+**Actual:** Second game fails to launch; Vanguard interaction suspected — documented widely in community and reported by vendors. :contentReference[oaicite:23]{index=23}  
+**Status:** Open
 
 ---
 
-## Bug 04 – Store Thumbnails Blur
+## BUG_CROSSPROG_004 – Cross-progression item sync delay
 **Severity:** Low  
-**Steps:** Open Store → Observe first load  
-**Expected:** Clear thumbnails  
-**Actual:** Blur for 1–2 seconds
+**Steps:** 1. Claim cosmetic on PC 2. Link console account 3. Check for cosmetic on PS5/Xbox within 5 minutes  
+**Actual:** Items sync but sometimes take several minutes (log timing and repro steps)  
+**Status:** Open
