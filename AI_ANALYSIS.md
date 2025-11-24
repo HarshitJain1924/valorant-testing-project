@@ -1,27 +1,14 @@
-# 🤖 AI-Assisted Testing – Valorant
+# 🤖 AI-Assisted Testing – VALORANT (Updated)
 
-This document explains how AI tools like ChatGPT / Gemini were used.
+## How AI was used (concrete steps)
+1. **Test-case expansion** — used prompts to generate edge-case scenarios for agent ability combos and unusual input sequences (e.g., ability + animation-cancel sequences).  
+2. **Performance triage** — fed sample FPS/time-series data into an ML prompt to highlight probable causes (asset streaming vs CPU spike).  
+3. **Bug prioritization** — generated severity recommendations based on impact to competitive integrity (e.g., Vanguard conflicts = critical).  
+4. **Automation ideas** — suggested scripts for repeated buy-phase latency testing using a network emulator + headless client and screenshot diffing.
 
-## 1. AI for Test Case Generation
-AI was used to:
-- Generate edge-case scenarios  
-- Create additional test cases quickly  
-- Identify hidden areas (like sensitivity settings, audio bugs)
+## Example prompts used
+- “List 30 edge-case test scenarios for an FPS buy-phase and equipment flow.”  
+- “Given frame time series [0.016, 0.017, 0.05, 0.016], name likely causes and next diagnostic steps.”
 
-## 2. AI for Bug Pattern Analysis
-AI helped in:
-- Predicting causes of ping spikes  
-- Analyzing frame drop patterns  
-- Suggesting test coverage improvements
-
-## 3. AI for Prompt-Based QA Workflows
-Prompts used:
-- “Generate test cases for FPS game movement system”  
-- “Identify UI bugs in a game shop interface”  
-- “Find scenarios to test matchmaking reliability”  
-
-## 4. AI for Documentation
-AI accelerated:
-- Bug report formatting  
-- Test plan polishing  
-- Prioritization of severity levels
+## Notes on trust & verification
+AI outputs were treated as suggestions and validated manually during test runs. All primary facts (engine migration, specs, Vanguard behavior, and console support) were verified against Riot/major press pages. :contentReference[oaicite:24]{index=24}
